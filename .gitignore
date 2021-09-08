@@ -1,0 +1,10 @@
+._.DS_Store
+venv
+build
+.vscode
+pyai.egg-info
+__pycache__
+pyai/detector.cpp
+pyai/detector.*.so
+pyai/bak
+.DS_Store

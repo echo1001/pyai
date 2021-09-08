@@ -1,0 +1,1 @@
+include pyai/lib/*.so pyai/*.py

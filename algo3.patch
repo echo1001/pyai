@@ -1,0 +1,11 @@
+--- gstnvinfer_cp.cpp	2021-04-13 09:58:11.485000000 -0500
++++ gstnvinfer.cpp	2021-04-13 10:06:48.921316755 -0500
+@@ -370,7 +370,7 @@
+ 
+   /* Set the default pre-processing transform params. */
+   nvinfer->transform_config_params.compute_mode = NvBufSurfTransformCompute_Default;
+-  nvinfer->transform_params.transform_filter = NvBufSurfTransformInter_Default;
++  nvinfer->transform_params.transform_filter = NvBufSurfTransformInter_Bilinear;
+ 
+   /* Create processing lock and condition for synchronization.*/
+   g_mutex_init (&nvinfer->process_lock);
