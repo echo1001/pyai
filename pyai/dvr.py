@@ -973,7 +973,7 @@ class DVR:
       return FileResponse(fname, headers={"Content-Disposition": "attachment"})
 
     session = aiohttp.ClientSession()
-    result = await session.request("post", f"{self.config.get("unifi_url", "")}/api/auth/login", json={
+    result = await session.request("post", f"{self.config.get('unifi_url', '')}/api/auth/login", json={
       "username": self.config.get("unifi_username", ""),
       "password": self.config.get("unifi_password", ""),
       "remember": True
@@ -988,7 +988,7 @@ class DVR:
     start -= 2000
     end += 5000
     result2 = await session.get(
-      f"{self.config.get("unifi_url", "")}/proxy/protect/api/video/export?camera={camera['unifi']}&channel=0&end={end}&filename={eid}.mp4&start={start}", 
+      f"{self.config.get('unifi_url', '')}/proxy/protect/api/video/export?camera={camera['unifi']}&channel=0&end={end}&filename={eid}.mp4&start={start}", 
       ssl=False,
       headers=headers
       )
