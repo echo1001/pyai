@@ -2,6 +2,7 @@ import numpy as np
 import asyncio, pyds
 
 from PIL import Image
+from pyai_utils import get_frame_image
 
 import pyai
 import datetime
@@ -170,9 +171,10 @@ class Detector(Gst.Bin):
       #surface = pyds.NvBufSurface(mapinfo)
       #gst_buffer.unmap(mapinfo)
       if hadDetections:
-        n_frame=pyds.get_nvds_buf_surface(hash(gst_buffer),frame_meta.batch_id)
-        frame_image= np.array(n_frame,copy=True,order='C')
-        frame.frame_image = frame_image
+        #n_frame=pyds.get_nvds_buf_surface(hash(gst_buffer),frame_meta.batch_id)
+        #frame_image= np.array(n_frame,copy=True,order='C')
+        #frame.frame_image = frame_image
+        frame.frame_image = get_frame_image(gst_buffer, frame_meta.batch_id)
 
       pyFrames.append(frame)
 
